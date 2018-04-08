@@ -8,21 +8,21 @@ import static org.junit.Assert.*;
 public class MarkdownMessageTest {
     @Test(expected = IllegalArgumentException.class)
     public void illegalArgumentException() {
-        MarkdownMessage markdownMessage = new MarkdownMessage();
+        MarkdownMessage markdownMessage = MarkdownMessage.builder().build();
         markdownMessage.toJson();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void noTitle() {
-        MarkdownMessage markdownMessage = new MarkdownMessage();
+        MarkdownMessage markdownMessage = MarkdownMessage.builder().build();
         markdownMessage.getItems().add("# THIS IS A TEST MARKDOWN MESSAGE");
         markdownMessage.getItems().add("> and this message is from ding talk client");
         markdownMessage.toJson();
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void normal() {
-        MarkdownMessage markdownMessage = new MarkdownMessage();
+        MarkdownMessage markdownMessage = MarkdownMessage.builder().build();
         markdownMessage.setTitle("this is a test message");
         markdownMessage.getItems().add("# THIS IS A TEST MARKDOWN MESSAGE");
         markdownMessage.getItems().add("> and this message is from ding talk client");

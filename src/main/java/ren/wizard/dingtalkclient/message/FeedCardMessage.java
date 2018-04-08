@@ -2,9 +2,8 @@ package ren.wizard.dingtalkclient.message;
 
 
 import com.google.gson.Gson;
-import lombok.Data;
+import lombok.*;
 import org.apache.commons.lang3.StringUtils;
-import ren.wizard.dingtalkclient.message.DingMessage;
 import ren.wizard.dingtalkclient.model.FeedCardMessageItem;
 
 import java.util.ArrayList;
@@ -16,7 +15,11 @@ import java.util.Map;
  * @author uyangjie
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class FeedCardMessage implements DingMessage {
+    @Builder.Default
     private List<FeedCardMessageItem> feedItems = new ArrayList<>();
 
     @Override

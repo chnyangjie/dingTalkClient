@@ -1,7 +1,10 @@
 package ren.wizard.dingtalkclient.message;
 
 import com.google.gson.Gson;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -13,8 +16,13 @@ import java.util.Map;
  * @author uyangjie
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MarkdownMessage implements DingMessage {
     private String title;
+    @Builder.Default
+    private List<String> items = new ArrayList<>();
 
     public static String getBoldText(String text) {
         return "**" + text + "**";
@@ -73,7 +81,6 @@ public class MarkdownMessage implements DingMessage {
         sb.append("- " + unorderItem.get(unorderItem.size() - 1));
         return sb.toString();
     }
-    private List<String> items = new ArrayList<>();
 
     @Override
     public String toJson() {

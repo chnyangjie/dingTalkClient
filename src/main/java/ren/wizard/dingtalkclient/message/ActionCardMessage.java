@@ -2,7 +2,10 @@ package ren.wizard.dingtalkclient.message;
 
 
 import com.google.gson.Gson;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import ren.wizard.dingtalkclient.constant.ActionButtonStyle;
 import ren.wizard.dingtalkclient.model.ActionCardAction;
@@ -16,6 +19,9 @@ import java.util.Map;
  * @author uyangjie
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ActionCardMessage implements DingMessage {
     public static final int MAX_ACTION_BUTTON_CNT = 5;
     public static final int MIN_ACTION_BUTTON_CNT = 1;
@@ -25,7 +31,9 @@ public class ActionCardMessage implements DingMessage {
     private String briefTitle;
     private String briefText;
     private boolean hideAvatar;
+    @Builder.Default
     private ActionButtonStyle actionButtonStyle = ActionButtonStyle.VERTICAL;
+    @Builder.Default
     private List<ActionCardAction> actions = new ArrayList<>();
 
     /**

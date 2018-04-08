@@ -1,7 +1,7 @@
 package ren.wizard.dingtalkclient.message;
 
 import com.google.gson.Gson;
-import lombok.Data;
+import lombok.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -13,8 +13,12 @@ import java.util.Map;
  * @author uyangjie
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class TextMessage implements DingMessage {
     private String text;
+    @Builder.Default
     private List<String> atMobiles = new ArrayList<>();
     private boolean isAtAll;
 

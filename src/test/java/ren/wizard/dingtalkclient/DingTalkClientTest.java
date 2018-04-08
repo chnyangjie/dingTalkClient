@@ -23,7 +23,7 @@ public class DingTalkClientTest {
 
     @Test
     public void sendTextMessage() throws IOException {
-        TextMessage textMessage = new TextMessage();
+        TextMessage textMessage = TextMessage.builder().build();
         textMessage.setText("this is a test text message from ding talk client");
         dingTalkClient.sendMessage(this.webhook, textMessage);
         textMessage.setText("this is a test text message from ding talk client but I passed the token as webhook");
@@ -33,7 +33,7 @@ public class DingTalkClientTest {
 
     @Test
     public void sendMarkDownMessage() throws IOException {
-        MarkdownMessage markdownMessage = new MarkdownMessage();
+        MarkdownMessage markdownMessage = MarkdownMessage.builder().build();
         markdownMessage.setTitle("markdown message tesst");
         markdownMessage.getItems().add("# THIS IS A TEST MARKDOWN MESSAGE");
         markdownMessage.getItems().add("> and this message is from ding talk client");
@@ -42,7 +42,7 @@ public class DingTalkClientTest {
 
     @Test
     public void sendFeedCardMessage() throws IOException {
-        FeedCardMessage feedCardMessage = new FeedCardMessage();
+        FeedCardMessage feedCardMessage = FeedCardMessage.builder().build();
         FeedCardMessageItem item = new FeedCardMessageItem();
         item.setMessageURL("http://baidu.com");
         item.setPicURL("http://img2.niushe.com/upload/201304/19/14-22-31-71-26144.jpg");
@@ -55,7 +55,7 @@ public class DingTalkClientTest {
 
     @Test
     public void sendLinkMessage() throws IOException {
-        LinkMessage linkMessage = new LinkMessage();
+        LinkMessage linkMessage = LinkMessage.builder().build();
         linkMessage.setMessageUrl("http://baidu.com");
         linkMessage.setPicUrl("http://img2.niushe.com/upload/201304/19/14-22-31-71-26144.jpg");
         linkMessage.setTitle("Test Link Message");
@@ -65,7 +65,7 @@ public class DingTalkClientTest {
 
     @Test
     public void sendActionCardMessage() throws IOException {
-        ActionCardMessage actionCardMessage = new ActionCardMessage();
+        ActionCardMessage actionCardMessage = ActionCardMessage.builder().build();
         actionCardMessage.setTitle("This is a action card message");
         actionCardMessage.setActionButtonStyle(ActionButtonStyle.HORIZONTAL);
         actionCardMessage.setBannerURL("http://img2.niushe.com/upload/201304/19/14-22-31-71-26144.jpg");
@@ -83,7 +83,7 @@ public class DingTalkClientTest {
 
     @Test
     public void sendSingleTargetActionCardMessage() throws IOException {
-        ActionCardMessage actionCardMessage = new ActionCardMessage();
+        ActionCardMessage actionCardMessage = ActionCardMessage.builder().build();
         actionCardMessage.setTitle("This is a action card message");
         actionCardMessage.setActionButtonStyle(ActionButtonStyle.HORIZONTAL);
         actionCardMessage.setBannerURL("http://img2.niushe.com/upload/201304/19/14-22-31-71-26144.jpg");

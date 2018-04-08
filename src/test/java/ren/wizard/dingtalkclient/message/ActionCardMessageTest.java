@@ -10,13 +10,13 @@ import static org.junit.Assert.*;
 public class ActionCardMessageTest {
     @Test(expected = IllegalArgumentException.class)
     public void illegalArgumentException() {
-        ActionCardMessage actionCardMessage = new ActionCardMessage();
+        ActionCardMessage actionCardMessage = ActionCardMessage.builder().build();
         actionCardMessage.toJson();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void illegalArgumentException2() {
-        ActionCardMessage actionCardMessage = new ActionCardMessage();
+        ActionCardMessage actionCardMessage = ActionCardMessage.builder().build();
         actionCardMessage.setTitle("This is a action card message");
         actionCardMessage.setActionButtonStyle(ActionButtonStyle.VERTICAL);
         actionCardMessage.setBannerURL("http://baidu.com");
@@ -28,7 +28,7 @@ public class ActionCardMessageTest {
 
     @Test
     public void toJson() {
-        ActionCardMessage actionCardMessage = new ActionCardMessage();
+        ActionCardMessage actionCardMessage = ActionCardMessage.builder().build();
         actionCardMessage.setTitle("This is a action card message");
         actionCardMessage.setActionButtonStyle(ActionButtonStyle.VERTICAL);
         actionCardMessage.setBannerURL("http://baidu.com");

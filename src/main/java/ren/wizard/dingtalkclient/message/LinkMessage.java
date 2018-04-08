@@ -1,9 +1,9 @@
 package ren.wizard.dingtalkclient.message;
 
 import com.google.gson.Gson;
+import lombok.Builder;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
-import ren.wizard.dingtalkclient.message.DingMessage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +12,7 @@ import java.util.Map;
  * @author uyangjie
  */
 @Data
+@Builder
 public class LinkMessage implements DingMessage {
     private String title;
     private String text;
