@@ -23,7 +23,8 @@ public class DingTalkClientTest {
 
     @Test
     public void sendTextMessage() throws IOException {
-        TextMessage textMessage = TextMessage.builder().build();
+        TextMessage textMessage = TextMessage.builder()
+                .build();
         textMessage.setText("this is a test text message from ding talk client");
         dingTalkClient.sendMessage(this.webhook, textMessage);
         textMessage.setText("this is a test text message from ding talk client but I passed the token as webhook");
@@ -33,10 +34,11 @@ public class DingTalkClientTest {
 
     @Test
     public void sendMarkDownMessage() throws IOException {
-        MarkdownMessage markdownMessage = MarkdownMessage.builder().build();
+        MarkdownMessage markdownMessage = MarkdownMessage.builder()
+                .item("# THIS IS A TEST MARKDOWN MESSAGE")
+                .item("> and this message is from ding talk client")
+                .build();
         markdownMessage.setTitle("markdown message tesst");
-        markdownMessage.getItems().add("# THIS IS A TEST MARKDOWN MESSAGE");
-        markdownMessage.getItems().add("> and this message is from ding talk client");
         dingTalkClient.sendMessage(this.token, markdownMessage);
     }
 

@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import lombok.*;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,8 +17,8 @@ import java.util.Map;
 @AllArgsConstructor
 public class TextMessage implements DingMessage {
     private String text;
-    @Builder.Default
-    private List<String> atMobiles = new ArrayList<>();
+    @Singular
+    private List<String> atMobiles;
     private boolean isAtAll;
 
     @Override
