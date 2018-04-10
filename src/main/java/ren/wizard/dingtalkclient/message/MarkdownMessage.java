@@ -19,7 +19,7 @@ import java.util.Map;
 public class MarkdownMessage implements DingMessage {
     private String title;
     @Singular
-    private List<String> items = new ArrayList<>();
+    private List<String> items;
 
     public static String getBoldText(String text) {
         return "**" + text + "**";

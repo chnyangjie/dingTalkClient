@@ -2,7 +2,6 @@ package ren.wizard.dingtalkclient;
 
 
 import com.google.gson.Gson;
-import com.sun.istack.internal.Nullable;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -39,7 +38,7 @@ public class DingTalkClient {
      * @return {@link SendResult}
      * @throws IOException
      */
-    public SendResult sendMessage(@Nullable String webhook, DingMessage message) throws IOException {
+    public SendResult sendMessage(String webhook, DingMessage message) throws IOException {
         if (StringUtils.isBlank(webhook)) {
             throw new IllegalArgumentException();
         }

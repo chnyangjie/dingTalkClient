@@ -18,6 +18,8 @@ public class DingTalkClientTest {
     @Before
     public void setUp() {
         this.dingTalkClient = DingTalkClient.getInstance();
+        this.webhook="a";
+        this.token="a";
 
     }
 
