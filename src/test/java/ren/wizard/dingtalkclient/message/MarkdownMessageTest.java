@@ -26,6 +26,7 @@ public class MarkdownMessageTest {
         MarkdownMessage markdownMessage = MarkdownMessage.builder()
                 .item("# THIS IS A TEST MARKDOWN MESSAGE")
                 .item("> and this message is from ding talk client")
+                .atMobile("17082237622")
                 .build();
         markdownMessage.setTitle("this is a test message");
         String json = markdownMessage.toJson();

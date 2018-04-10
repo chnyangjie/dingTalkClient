@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import lombok.*;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +18,14 @@ import java.util.Map;
 public class MarkdownMessage implements DingMessage {
     private String title;
     @Singular
+<<<<<<< Updated upstream
     private List<String> items = new ArrayList<>();
+=======
+    private List<String> items;
+    @Singular
+    private List<String> atMobiles;
+    private boolean isAtAll;
+>>>>>>> Stashed changes
 
     public static String getBoldText(String text) {
         return "**" + text + "**";
@@ -87,7 +93,7 @@ public class MarkdownMessage implements DingMessage {
         if (StringUtils.isBlank(this.title)) {
             throw new IllegalArgumentException("title should not be blank");
         }
-        Map<String, Object> result = new HashMap<>((int) Math.ceil(2 / 0.75));
+        Map<String, Object> result = new HashMap<>((int) Math.ceil(3 / 0.75));
         result.put("msgtype", "markdown");
 
         Map<String, Object> markdown = new HashMap<>((int) Math.ceil(2 / 0.75));
@@ -98,6 +104,14 @@ public class MarkdownMessage implements DingMessage {
             markdownText.append(item).append("\n");
         }
         markdown.put("text", markdownText.toString());
+        Map<String, Object> atItems = new HashMap<>((int) Math.ceil(2 / 0.75));
+        if (atMobiles != null && !atMobiles.isEmpty()) {
+            atItems.put("atMobiles", atMobiles);
+        }
+        if (isAtAll) {
+            atItems.put("isAtAll", true);
+        }
+        result.put("at", atItems);
         result.put("markdown", markdown);
         return new Gson().toJson(result);
     }
