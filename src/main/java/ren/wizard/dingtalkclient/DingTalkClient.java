@@ -2,6 +2,7 @@ package ren.wizard.dingtalkclient;
 
 
 import com.google.gson.Gson;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.HttpPost;
@@ -38,6 +39,9 @@ public class DingTalkClient {
      * @throws IOException
      */
     public SendResult sendMessage(String webhook, DingMessage message) throws IOException {
+        if (StringUtils.isBlank(webhook)) {
+            throw new IllegalArgumentException();
+        }
         String url;
         if (webhook.toLowerCase().startsWith("http")) {
             url = webhook;
