@@ -18,14 +18,10 @@ import java.util.Map;
 public class MarkdownMessage implements DingMessage {
     private String title;
     @Singular
-<<<<<<< Updated upstream
-    private List<String> items = new ArrayList<>();
-=======
     private List<String> items;
     @Singular
     private List<String> atMobiles;
     private boolean isAtAll;
->>>>>>> Stashed changes
 
     public static String getBoldText(String text) {
         return "**" + text + "**";
