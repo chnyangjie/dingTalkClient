@@ -7,7 +7,7 @@ lombok { // optional: values below are the defaults
     sha256 = "c5178b18caaa1a15e17b99ba5e4023d2de2ebc18b58cde0f5a04ca4b31c10e6d"
 }
 group 'wizard.ren'
-version '0.0.5'
+version '0.0.6'
 
 sourceCompatibility = 1.8
 
