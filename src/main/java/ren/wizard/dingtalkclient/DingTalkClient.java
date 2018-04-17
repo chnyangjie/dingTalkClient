@@ -35,11 +35,12 @@ public class DingTalkClient {
     public static DingTalkClient getInstance() {
         return ourInstance;
     }
+
     /**
      * send message
      *
-     * @param webhook ding talk webhook or access token
-     * @param message ding talk message {@link DingMessage}
+     * @param webhook  ding talk webhook or access token
+     * @param message  ding talk message {@link DingMessage}
      * @param proxy
      * @param port
      * @param username
@@ -65,6 +66,14 @@ public class DingTalkClient {
             httpclient = builder.build();
             return sendMessage(webhook, message);
         }
+    }
+
+    public CloseableHttpClient getHttpclient() {
+        return httpclient;
+    }
+
+    public void setHttpclient(CloseableHttpClient httpclient) {
+        this.httpclient = httpclient;
     }
 
     /**
@@ -93,6 +102,7 @@ public class DingTalkClient {
 
         if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
             String result = EntityUtils.toString(response.getEntity());
+            httpPost.releaseConnection();
             return gson.fromJson(result, SendResult.class);
         }
         throw new IOException();
