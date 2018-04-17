@@ -18,8 +18,8 @@ public class DingTalkClientTest {
     @Before
     public void setUp() {
         this.dingTalkClient = DingTalkClient.getInstance();
-        this.webhook = "https://oapi.dingtalk.com/robot/send?access_token=9c301b378761ce2fdcd519241d4720efea72a66fc1da6a37275ad91382874751";
-        this.token = "https://oapi.dingtalk.com/robot/send?access_token=9c301b378761ce2fdcd519241d4720efea72a66fc1da6a37275ad91382874751";
+        this.webhook="a";
+        this.token="a";
     }
 
     @Test
