@@ -18,7 +18,8 @@ public class DingTalkClientTest {
     @Before
     public void setUp() {
         this.dingTalkClient = DingTalkClient.getInstance();
-
+        this.webhook = "https://oapi.dingtalk.com/robot/send?access_token=9c301b378761ce2fdcd519241d4720efea72a66fc1da6a37275ad91382874751";
+        this.token = "https://oapi.dingtalk.com/robot/send?access_token=9c301b378761ce2fdcd519241d4720efea72a66fc1da6a37275ad91382874751";
     }
 
     @Test
@@ -36,7 +37,8 @@ public class DingTalkClientTest {
     public void sendMarkDownMessage() throws IOException {
         MarkdownMessage markdownMessage = MarkdownMessage.builder()
                 .item("# THIS IS A TEST MARKDOWN MESSAGE")
-                .item("> and this message is from ding talk client")
+                .item("> and this message is from ding talk client\n")
+                .item("![](http://icon-park.com/imagefiles/loading7_gray.gif){:height=\"50px\" width=\"50px\"}")
                 .build();
         markdownMessage.setTitle("markdown message tesst");
         dingTalkClient.sendMessage(this.token, markdownMessage);
@@ -59,7 +61,7 @@ public class DingTalkClientTest {
     public void sendLinkMessage() throws IOException {
         LinkMessage linkMessage = LinkMessage.builder().build();
         linkMessage.setMessageUrl("http://baidu.com");
-        linkMessage.setPicUrl("http://img2.niushe.com/upload/201304/19/14-22-31-71-26144.jpg");
+//        linkMessage.setPicUrl("http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png");
         linkMessage.setTitle("Test Link Message");
         linkMessage.setText("This is a tests link message");
         dingTalkClient.sendMessage(this.token, linkMessage);
