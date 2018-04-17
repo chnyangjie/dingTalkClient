@@ -30,6 +30,14 @@ public class DingTalkClient {
         return ourInstance;
     }
 
+    public CloseableHttpClient getHttpclient() {
+        return httpclient;
+    }
+
+    public void setHttpclient(CloseableHttpClient httpclient) {
+        this.httpclient = httpclient;
+    }
+
     /**
      * send message
      *

@@ -20,12 +20,12 @@ public class DingTalkClientTest {
         this.dingTalkClient = DingTalkClient.getInstance();
         this.webhook="a";
         this.token="a";
-
     }
 
     @Test
     public void sendTextMessage() throws IOException {
-        TextMessage textMessage = TextMessage.builder().build();
+        TextMessage textMessage = TextMessage.builder()
+                .build();
         textMessage.setText("this is a test text message from ding talk client");
         dingTalkClient.sendMessage(this.webhook, textMessage);
         textMessage.setText("this is a test text message from ding talk client but I passed the token as webhook");
@@ -35,10 +35,12 @@ public class DingTalkClientTest {
 
     @Test
     public void sendMarkDownMessage() throws IOException {
-        MarkdownMessage markdownMessage = MarkdownMessage.builder().build();
+        MarkdownMessage markdownMessage = MarkdownMessage.builder()
+                .item("# THIS IS A TEST MARKDOWN MESSAGE")
+                .item("> and this message is from ding talk client\n")
+                .item("![](http://icon-park.com/imagefiles/loading7_gray.gif){:height=\"50px\" width=\"50px\"}")
+                .build();
         markdownMessage.setTitle("markdown message tesst");
-        markdownMessage.getItems().add("# THIS IS A TEST MARKDOWN MESSAGE");
-        markdownMessage.getItems().add("> and this message is from ding talk client");
         dingTalkClient.sendMessage(this.token, markdownMessage);
     }
 
@@ -59,7 +61,7 @@ public class DingTalkClientTest {
     public void sendLinkMessage() throws IOException {
         LinkMessage linkMessage = LinkMessage.builder().build();
         linkMessage.setMessageUrl("http://baidu.com");
-        linkMessage.setPicUrl("http://img2.niushe.com/upload/201304/19/14-22-31-71-26144.jpg");
+//        linkMessage.setPicUrl("http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png");
         linkMessage.setTitle("Test Link Message");
         linkMessage.setText("This is a tests link message");
         dingTalkClient.sendMessage(this.token, linkMessage);
